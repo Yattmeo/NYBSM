@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foreword</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pompiere&display=swap" rel="stylesheet">
+    <style>
+        .background-image {
+            position: relative;
+            background-image: url("{{ url_for('static', filename='times_sq.jpeg') }}");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+        .background-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7); /* Darken the background */
+            z-index: 1;
+        }
+        .content {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.05); /* Light background for the text box */
+            padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
+        }
+        .foreword {
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bolder;
+            font-family: 'Pompiere', serif;
+        }
+
+        .foreword-content {
+            margin-left: 60px;
+            margin-right: 60px;
+        }
+
+        .foreword-text {
+            color: white;
+            font-size: 1rem;
+            font-family: 'Pompiere', serif;
+            text-align: left;
+        }
+        
+    </style>
+</head>
+<body class="background-image flex items-center justify-center">
+    <div class="content text-center">
+        <h1 class="foreword font-bold mb-8">A quick foreword</h1>
+        <div class="foreword-content">
+            <p class="foreword-text mb-3">
+                The Big Apple, The City That Never Sleeps, The Capital of the World, The Melting Pot. Whatever you choose to call it, New York City is undeniably the epicenter of creativity—a buzzing hive of talent, innovation, and boundary-pushing ideas. From Broadway stages to Madison Avenue advertising agencies, from consultancies shaping global brands to the studios redefining jazz, NYC is where the world’s best creatives thrive and build the world of tomorrow. And through this BSM, I had the privilege of stepping into the very heart of it all.            </p>
+            <p class="foreword-text mb-3">
+                As a computing student, I was eager to uncover how the brightest minds in the industry are navigating the AI revolution—in particular, how Generative AI is reshaping the way we think, work, and create. What I wasn’t prepared for, though, was just how deeply these ideas would inspire and challenge me to rethink not just how I work, but how I approach creativity itself.
+            </p>
+            <p class="foreword-text mb-3">
+                Now, I’m not going to pretend to be an expert storyteller (Unlike Shayanne I’d much rather sit down with my guitar than a blank word document), but in this reflection, I’ll do my best to share the lessons, and inspiration I’ve gained. So, thank you for reading—I hope this gives you even a glimpse of what I experienced in this incredible journey.
+            </p>
+            <p class="foreword-text mb-3">
+                - Matthew
+            </p>
+            <p class="foreword-text mb-5">
+                (P.S. if you ever have the chance to go for a BSM with Prof Mark Chong, do it. You won’t regret it and it might just change your life, as it has mine.)
+            </p>
+        </div>
+        <a href="{{ url_for('think') }}" class="text-2xl hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+            Think Different.
+        </a>
+    </div>
+</body>
+</html>

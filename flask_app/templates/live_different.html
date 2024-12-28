@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Different</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Noto+Music&family=Pompiere&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Pompiere', serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-size: 1.5rem;
+        }
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("{{ url_for('static', filename='finale.jpeg') }}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1;
+        }
+        .background-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7); /* Darken the background */
+            z-index: -1;
+        }
+        .content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1399px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            overflow-y: auto;
+            max-height: 100vh;
+        }
+        .card, .paragraph {
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.1); /* Transparent background for the card */
+            border-radius: 8px;
+            overflow: hidden;
+            backdrop-filter: blur(10px); /* Optional: Add blur effect */
+            transition: transform 0.3s;
+            padding: 20px;
+            color: white;
+        }
+        .card:hover, .paragraph:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        .title {
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bolder;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+        .wide {
+            grid-column: span 2;
+        }
+        .superwide {
+            grid-column: span 3;
+        }
+        .superlarge {
+            grid-column: span 3;
+            grid-row: span 2;
+        }
+        .tall {
+            grid-row: span 2;
+        }
+        .collage {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 400px; /* Adjust height as needed */
+            overflow: hidden;
+        }
+        .collage img {
+            width: 100%;
+            height: 100%;
+            object-fit:contain;
+            border-radius: 8px;
+            
+        }
+        .collage img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image"></div>
+    <div class="content">
+        <h1 class="title font-bold mb-8 tall">
+            Live Different.
+        </h1>
+        <div class="paragraph large">
+            <div class="collage" id="collage">
+                <!-- Images will be inserted here by JavaScript -->
+            </div>
+            <div class="card-content">
+                <p>As is usually the case, the most valuable of lessons didn’t come from a company presentation, or a polished pitch—it came from the people I shared this experience with. <br><br>Late-night chats with friends, spirited debates about the role of AI in art, and shared moments over meals added a richness to this class that no lecture could replicate. These weren’t just conversations to pass the time; they were exchanges of vision, energy, and perspective that deepened my understanding of creativity and its many forms.</p>
+            </div>
+        </div>
+        <div class="card large">
+            <div class="card-content">
+                <p>As is usually the case, the most valuable of lessons didn’t come from a company presentation, or a polished pitch—it came from the people I shared this experience with. <br><br>My friends and classmates were not just a constant backdrop (literally as you may have noticed) in this trip, but rather the foundation grounding me in this whirlwind of experiences. They were there to challenge my views, share laughter, and offer fresh perspectives that enrich every discussion. <br><br>They were co-creators of this journey, making every moment more meaningful. In a study mission fundamentally about thinking, working, and living differently, it was these friendships that truly made it unforgettable.</p>            </div>
+        </div>
+        <div class="card ">
+            <div class="card-content">
+                <p>And now, as I wrap up this reflection piece, I must let you in on a little secret: generative AI had its fingerprints on every part of this assignment. From writing the code for this webpage to drafting sections and refining the overall flow, AI was used creatively throughout this process. The fun part? If I didn’t say anything, would you have noticed? <br><br>
+                    This reflection was a little experiment of mine, a collaboration between human creativity and machine intelligence. Could AI organise and present my thoughts without diluting my voice, style and quirks? <br><br>
+                    Well, as I look back on this piece of creative work, I see something unmistakably mine, and yet undeniably influenced by technology. And therein lies my answer.</p>
+            </div>
+        </div>
+        <div class="paragraph superwide">
+            <p>So here’s to living differently, to taking bold steps, embracing collaboration, and finding inspiration in diversity. And hopefully, to spotting where the AI should end and where the human begins—because when the two work together, as I’ve discovered, they can create something truly extraordinary.
+            <br><br> Thank you for joining me on this journey. I hope you enjoyed it as much as I did.
+            <br><br> Live Different. 
+            <br><br> - Matthew, NYBSM '24</p>
+            </p>
+        </div>
+        <div class="superwide" style="text-align: right; padding: 20px;">
+            <a href="{{ url_for('home') }}" class="text-2xl hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" style="font-family: serif">Back Home</a>
+        </div>
+    </div>
+    <script>
+        const collageFolder = "{{ url_for('static', filename='collage') }}";
+        const collageElement = document.getElementById('collage');
+        const images = [
+            'c1.jpeg',
+            'c2.jpeg',
+            'c3.jpeg',
+            'c4.jpeg',
+            'c5.jpeg',
+            'c6.jpeg',
+            'c7.jpeg',
+            'c8.jpeg',
+            'c9.jpeg',
+            'c10.jpeg',
+            'c11.jpeg',
+            'c12.jpeg',
+            'c13.jpeg',
+            'c14.jpeg',
+            'c15.jpeg',
+            'c16.jpeg',
+            'c17.jpeg',
+            'c18.jpeg',
+            'c19.jpeg',
+            'c20.jpeg',
+            'c21.jpeg',
+            'c22.jpeg',
+            'c23.jpeg',
+            'c24.jpeg',
+            'c25.jpeg',
+        ];
+
+        let currentIndex = 0;
+
+        function rotateImages() {
+            collageElement.innerHTML = '';
+            for (let i = 0; i < 1; i++) {
+                const img = document.createElement('img');
+                img.src = `${collageFolder}/${images[(currentIndex + i) % images.length]}`;
+                collageElement.appendChild(img);
+            }
+            currentIndex = (currentIndex + 2) % images.length;
+        }
+
+        setInterval(rotateImages, 1000);
+        rotateImages();
+    </script>
+</body>
+</html>

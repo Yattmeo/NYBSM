@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Different</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Noto+Music&family=Pompiere&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Pompiere', serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-size: 1.5rem;
+        }
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("{{ url_for('static', filename='staten.jpeg') }}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1;
+        }
+        .background-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7); /* Darken the background */
+            z-index: -1;
+        }
+        .content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1399px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            overflow-y: auto;
+            max-height: 100vh;
+        }
+        .card, .paragraph {
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.1); /* Transparent background for the card */
+            border-radius: 4px;
+            overflow: hidden;
+            backdrop-filter: blur(10px); /* Optional: Add blur effect */
+            transition: transform 0.3s;
+            padding: 20px;
+            color: white;
+        }
+        .card:hover, .paragraph:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        .title {
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bolder;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+        .wide {
+            grid-column: span 2;
+        }
+        .superwide {
+            grid-column: span 3;
+        }
+        .tall {
+            grid-row: span 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image"></div>
+    <div class="content">
+        <h1 class="title font-bold mb-8">
+            Create Different.
+        </h1>
+        <div class="paragraph superwide">
+            <h2 class="text-2xl font-bold mb-4">The Human Spirit</h2>
+            <p>At the heart of creativity lies one fundamental truth: it’s all about human connection. The best work doesn’t just exist in a vacuum—it tells stories, evokes emotion, and resonates deeply with people. In the midst of an increasingly AI driven world, the organizations we visited reminded us that while tools like AI can support this process, they can never replace it’s true source: The human spirit.</p>
+        </div>
+        <div class="card large">
+            <img src="{{ url_for('static', filename='guitarman.jpeg') }}" alt="Havas Image" class="w-full" style="height: 10rem;">
+            <div class="card-content">
+                <p>At Mason Jar Music, Jonathan Seale and his friends reminded us of the power of imperfection, and the need for human connection. Their philosophy is rooted in the belief that it is these quirks and imperfections in art that make it feel real, relatable, and deeply human. To them, the role of AI is not to replace this spirit but to support it—a tool to enhance and focus creativity, not to substitute for it.<br><br>From soulful singing to stirring performances of the fiddle, the raw unpolished beauty of the human touch was on full display. In my mind, AI could perhaps create something of a similar style, to the extent of achieving technical perfection. However, it could never replicate or create that connection between us and their music.</p>
+            </div>
+        </div>
+        <div class="card wide">
+            <div class="flex space-x-4">
+                <img src="{{ url_for('static', filename='nyu.jpeg') }}" alt="nyu Image" class="w-1/2" style="height: 10rem;">
+                <img src="{{ url_for('static', filename='anxietyballoon.png') }}" alt="balloon Image" class="w-1/2" style="height: 10rem;">
+            </div>
+            <p class="text-center text-white mt-2">photo credit: Siyan Chen</p>
+            <div class="card-content">
+                <p>Even at the NYU Tisch ITP/IMA Winter Showcase, the importance of empathy and the human connection was crystal clear. The showcase was a sprawling maze of interactive exhibits, showcases and experiences, some aiming to inform, some to evoke reflection, many telling a story deeply rooted in their experiences and culture.<br><br>While Generative AI was rare amongst projects, one interactive exhibit stood out, leveraging AI to map emotional responses through sentiment analysis, and analysis on speed and force of typing to craft a tailored experience for the user to tackle their anxieties head on (in a rather fun way of popping a balloon too i might add). Yet, even here, the AI was merely a tool—an enabler of a deeper, more lucid connection with oneself. The art itself, the heart of the project, came from a profoundly human place.</p>
+            </div>
+        </div>
+        <div class="card wide">
+            <p>In this AI-driven era, creating different isn’t about keeping up with technology—it’s about transcending it. It’s about grounding creative works in the human spirit, in emotions, stories, and human imperfections that machines simply cannot replicate. AI can assist, amplify, and expand the creative process, but the soul of creation will always belong to humans. Create Different.</p>
+        </div>
+        <div class="superwide" style="text-align: right; padding: 20px;">
+            <a href="{{ url_for('live') }}" class="text-2xl hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" style="font-family: serif">Live Different.</a>
+        </div>
+    </div>
+</body>
+</html>

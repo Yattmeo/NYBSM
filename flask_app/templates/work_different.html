@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Different</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Noto+Music&family=Pompiere&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family:'Trebuchet MS', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-size: 1rem;
+        }
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("{{ url_for('static', filename='tree_photo.jpeg') }}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1;
+        }
+        .background-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7); /* Darken the background */
+            z-index: -1;
+        }
+        .content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1399px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            overflow-y: auto;
+            max-height: 100vh;
+        }
+        .card, .paragraph {
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.1); /* Transparent background for the card */
+            border-radius: 4px;
+            overflow: hidden;
+            backdrop-filter: blur(10px); /* Optional: Add blur effect */
+            transition: transform 0.3s;
+            padding: 20px;
+            color: white;
+        }
+        .card:hover, .paragraph:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        .title {
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bolder;
+            text-align: left;
+            margin-bottom: 20px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        .large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+        .wide {
+            grid-column: span 2;
+        }
+        .superwide {
+            grid-column: span 3;
+        }
+        .tall {
+            grid-row: span 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image"></div>
+    <div class="content">
+        <h1 class="title font-bold mb-8">
+            Work Different.
+        </h1>
+        <div class="paragraph wide">
+            <h2 class="text-2xl font-bold mb-4">Are we being replaced?</h2>
+            <p>Like how the steam engine once gave rise to the industrial revolution, the way we work today is evolving, and nowhere is that more evident than in the rise of Generative AI. <br><br>In the media, I’ve seen Gen AI be painted as everything from mankind's saviour to the first nail in the coffin for human agency. Across every organization I visited, the message however was clear: AI isn’t a threat—it’s a tool, but <span class="font-bold text-yellow-400">how you use it</span> makes all the difference.</p>
+        </div>
+        <div class="card superwide">
+            <div class="flex space-x-4">
+                <img src="{{ url_for('static', filename='havas.jpeg') }}" alt="Havas Image" class="w-1/2" style="height: 10rem;">
+                <img src="{{ url_for('static', filename='accenture.jpeg') }}" alt="Accenture Image" class="w-1/2" style="height: 10rem;">
+            </div>
+            <div class="card-content">
+                <p>At Mother and Primary, AI was described as a creative partner, enhancing productivity by assisting in iterative design, without replacing the human touch.<br><br> Jeremy from Havas and Marvin of Accenture-Song had slightly different thoughts however. Both lent their insight and demonstrated just how integrated AI has become in the advertising and solutioning spaces. driving everything from personal productivity to workflow management and even as a product shipped to customers. To these companies, Gen AI is a tool to expand possibilities, not diminish them. They showed me how Gen AI can open new doors by making workflows smoother, ideas bolder, and outcomes more innovative and personalised. </p>
+            </div>
+        </div>
+        <div class="card large">
+            <img src="{{ url_for('static', filename='nbc.jpeg') }}" alt="Placeholder Image">
+            <div class="card-content">
+                <p>On the other hand, Warner Bros and NBC reminded me of the challenges AI adoption brings to the table. While its potential is undeniable, adoption in larger firms remains slow due to concerns and indecision over cost, legal hurdles, and disruption to existing systems.<br><br> To them, Gen AI is a capability that must be pursued to maintain competitiveness, albeit with great caution and deliberation. </p>
+            </div>
+        </div>
+        <div class="card tall">
+                <img src="{{ url_for('static', filename='masonjar.jpeg') }}" alt="mason jar Image" style="height: 10rem;">
+                <img src="{{ url_for('static', filename='broadway.jpeg') }}" alt="broadway Image" style="height: 10rem;">
+            <div class="card-content">
+                <p>Yet, for organizations like the Broadway League and Mason Jar Music, the hesitation runs deeper still. <br><br>In their eyes, Gen AI is seen as a highly limited tool that can assist creative work, but can never truly replace or replicate the authenticity and imperfection that make creativity so distinctly human.</p>
+            </div>
+        </div>
+        <div class="card superwide">
+            <p>To work different is to embrace technology thoughtfully and deliberately. As with most things, it’s about finding the right balance—using AI to enhance your work while staying grounded in what makes human creativity unique. Who knows, one day we might wonder how we even got anything done without AI at all</p>
+        </div>
+
+        <div class="superwide" style="text-align: right; padding: 20px;">
+            <a href="{{ url_for('create') }}" class="text-2xl hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" style="font-family: serif">Create Different.</a>
+        </div>
+    </div>
+</body>
+</html>
