@@ -92,6 +92,15 @@
         .tall {
             grid-row: span 2;
         }
+        @media (max-width: 1024px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            .large, .wide, .superwide, .tall {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -131,7 +140,7 @@
         </div>
 
         <div class="superwide" style="text-align: right; padding: 20px;">
-            <a href="{{ url_for('create') }}" class="text-2xl hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" style="font-family: serif">Create Different.</a>
+            <a href="{{ url_for('create') }}" class="text-2xl hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" style="font-family: Pompiere">Create Different.</a>
         </div>
     </div>
 </body>

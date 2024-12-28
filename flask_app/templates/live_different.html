@@ -43,7 +43,7 @@
             max-width: 1399px;
             margin: auto;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             padding: 20px;
             overflow-y: auto;
@@ -94,6 +94,15 @@
         }
         .tall {
             grid-row: span 2;
+        }
+        @media (max-width: 1024px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            .large, .wide, .superwide, .superlarge, .tall {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
         }
         .collage {
             display: flex;

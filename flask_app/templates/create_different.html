@@ -91,6 +91,15 @@
         .tall {
             grid-row: span 2;
         }
+        @media (max-width: 1024px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            .large, .wide, .superwide, .tall {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -104,15 +113,15 @@
             <p>At the heart of creativity lies one fundamental truth: it’s all about human connection. The best work doesn’t just exist in a vacuum—it tells stories, evokes emotion, and resonates deeply with people. In the midst of an increasingly AI driven world, the organizations we visited reminded us that while tools like AI can support this process, they can never replace it’s true source: The human spirit.</p>
         </div>
         <div class="card large">
-            <img src="{{ url_for('static', filename='guitarman.jpeg') }}" alt="Havas Image" class="w-full" style="height: 10rem;">
+            <img src="{{ url_for('static', filename='guitarman.jpeg') }}" alt="guitar Image" class="w-full" style="height: 30rem;">
             <div class="card-content">
                 <p>At Mason Jar Music, Jonathan Seale and his friends reminded us of the power of imperfection, and the need for human connection. Their philosophy is rooted in the belief that it is these quirks and imperfections in art that make it feel real, relatable, and deeply human. To them, the role of AI is not to replace this spirit but to support it—a tool to enhance and focus creativity, not to substitute for it.<br><br>From soulful singing to stirring performances of the fiddle, the raw unpolished beauty of the human touch was on full display. In my mind, AI could perhaps create something of a similar style, to the extent of achieving technical perfection. However, it could never replicate or create that connection between us and their music.</p>
             </div>
         </div>
         <div class="card wide">
             <div class="flex space-x-4">
-                <img src="{{ url_for('static', filename='nyu.jpeg') }}" alt="nyu Image" class="w-1/2" style="height: 10rem;">
-                <img src="{{ url_for('static', filename='anxietyballoon.png') }}" alt="balloon Image" class="w-1/2" style="height: 10rem;">
+                <img src="{{ url_for('static', filename='nyu.jpeg') }}" alt="nyu Image" class="w-1/3" style="height: 15rem;">
+                <img src="{{ url_for('static', filename='anxietyballoon.png') }}" alt="balloon Image" class="w-2/3" style="height: 15rem;">
             </div>
             <p class="text-center text-white mt-2">photo credit: Siyan Chen</p>
             <div class="card-content">
