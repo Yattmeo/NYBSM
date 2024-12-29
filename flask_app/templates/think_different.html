@@ -6,6 +6,7 @@
     <title>Think Different</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Noto+Music&family=Pompiere&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <style>
         body {
             font-family: 'Pompiere', serif;
@@ -52,16 +53,17 @@
         .card, .paragraph {
             display: flex;
             flex-direction: column;
-            background: rgba(255, 255, 255, 0.1); /* Transparent background for the card */
+            background: rgba(255, 255, 255, 0.05); /* Transparent background for the card */
             border-radius: 8px;
             overflow: hidden;
-            backdrop-filter: blur(10px); /* Optional: Add blur effect */
-            transition: transform 0.3s;
+            backdrop-filter: blur(2px); /* Optional: Add blur effect */
+            transition: transform 0.3s, background-color 0.3s;
             padding: 20px;
             color: white;
         }
         .card:hover, .paragraph:hover {
             transform: scale(1.05);
+            background-color: rgba(255, 255, 255, 0.2);
         }
         .card img {
             width: 100%;
@@ -105,39 +107,44 @@
 <body>
     <div class="background-image"></div>
     <div class="content">
-        <h1 class="title font-bold mb-8">
+        <h1 class="title font-bold mb-8" data-aos="fade-up">
             Think Different.
         </h1>
-        <div class="paragraph wide">
+        <div class="paragraph wide" data-aos="fade-up">
             <h2 class="text-2xl font-bold mb-4">Conversations and Stories</h2>
             <p>No BSM would be complete without numerous company visits complete with all manner of talks, interviews and QnA sessions. Throughout these many conversations, I found one idea to consistently come through:</p>
             <br>
             <p>creativity begins with bold, independent thinking. The best in the business don’t just follow trends—they challenge them. And the stories we heard brought this principle to life in vivid, personal ways.</p>
         </div>
-        <div class="card wide">
-            <img src="{{ url_for('static', filename='Mother.jpeg') }}" alt="Placeholder Image">
+        <div class="card wide" data-aos="fade-up">
+            <img src="{{ url_for('static', filename='Mother.jpeg') }}" alt="Mother">
             <div class="card-content">
                 <p>At Mother, the team didn’t just speak about thinking independently; they showed us how it’s done. 
                     From Blood Ink to the Sounds of New York, Mother consistently produced bold campaigns that broke through the noise, refusing to conform to the status quo.<br><br> Their work served as living proof to me that creativity flourishes when the right boundaries are pushed, and when we boldly go where no man has gone before. It wasn’t just advice—it was a call to action to have an opinion, to work hard, and to never limit yourself to the mediocre.</p>
             </div>
         </div>
-        <div class="card tall">
-            <img src="{{ url_for('static', filename='Primary.jpg') }}" alt="Placeholder Image">
+        <div class="card tall" data-aos="fade-up">
+            <img src="{{ url_for('static', filename='Primary.jpg') }}" alt="Primary">
             <div class="card-content">
-                <p>Primary offered a more personal lens on this idea through the life story of its founder, Rei Inamoto. His journey as a technologist and creative was a testament to the value of differentiation—not just in his work but in how he approached the world itself. <br><br>He shared how he forged his own path by leaning into his unique perspectives and skillsets, boldly(as least in my opinion) carving out a niche that set him apart from his peers. It was a reminder that thinking differently isn’t just about innovation—it’s about knowing who you are and embracing it unapologetically.</p>
+                <p>I&Co offered a more personal lens on this idea through the life story of its founder, Rei Inamoto. His journey as a technologist and creative was a testament to the value of differentiation—not just in his work but in how he approached the world itself. <br><br>He shared how he forged his own path by leaning into his unique perspectives and skillsets, boldly(as least in my opinion) carving out a niche that set him apart from his peers. It was a reminder that thinking differently isn’t just about innovation—it’s about knowing who you are and embracing it unapologetically.</p>
             </div>
         </div>
-        <div class="card wide">
-            <img src="{{ url_for('static', filename='warner.jpeg') }}" alt="Placeholder Image">
+        <div class="card wide" data-aos="fade-up">
+            <img src="{{ url_for('static', filename='Warner.jpeg') }}" alt="Warner">
             <div class="card-content">
                 <p>At Warner Bros, Shilpa Bisaria shared her own experiences leading a team at the intersection of creativity and business. Her perspective was all about zooming out — seeing the big picture, staying curious, and adapting to the everchanging world around us. She encouraged us to always ask questions, seek opportunities, and keep challenging ourselves. <br><br>Her experiences are proof to me that bold, independent thinking isn’t confined to creative departments; it’s just as critical in shaping strategy and driving innovation in even the largest of corporations.</p>
+            </div>
+        </div>
+        <div class="paragraph superwide" data-aos="">
+            <p>The common thread between them? Be fearless in your ideas, challenge convention, and believe that the next big thing doesn’t just exist—it’s waiting for you to create it. Think Different.</p>
+        </div>
+        <div class="superwide" style="text-align: right; padding: 20px;" >
+            <a href="{{ url_for('work') }}" class="text-2xl hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Work Different.</a>
         </div>
     </div>
-    <div class="paragraph superwide">
-        <p>The common thread between them? Be fearless in your ideas, challenge convention, and believe that the next big thing doesn’t just exist—it’s waiting for you to create it. Think Different.</p>
-    </div>
-    <div class="superwide" style="text-align: right; padding: 20px;">
-        <a href="{{ url_for('work') }}" class="text-2xl hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Work Different.</a>
-    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
